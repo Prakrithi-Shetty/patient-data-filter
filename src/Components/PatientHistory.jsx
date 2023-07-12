@@ -22,7 +22,7 @@ const PatientHistory = () => {
       </Typography>
 
 
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: 'theme.spacing(2)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: 'theme.spacing(2)' ,marginLeft:20}}>
         <Typography id="ageFilterLabel" variant="body1" gutterBottom style={{ marginRight: 20 }}>
           Filter by Age:
         </Typography>
