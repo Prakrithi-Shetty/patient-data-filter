@@ -4,11 +4,13 @@ import { API_URL } from '../constants/api.constants'
 const usePatientData = () => {
   const [patientData, setPatientData] = useState([]);
   const [ageFilter, setAgeFilter] = useState([0, 100]);
+  const[loader,setLoader]=useState(true)
 
   const fetchPatientData = async () => {
     try {
       const response = await fetch(API_URL);
       const json = await response.json();
+      setLoader(false)
       // Calculate age for each patient and update the patientData array
       const updatedPatientData = json.entry.map((entry) => {
         const patient = entry?.resource;
@@ -30,7 +32,7 @@ const usePatientData = () => {
     fetchPatientData();
   }, []);
 
-  return { patientData, ageFilter, setAgeFilter };
+  return { patientData, ageFilter, setAgeFilter,loader };
 };
 
 export default usePatientData;
