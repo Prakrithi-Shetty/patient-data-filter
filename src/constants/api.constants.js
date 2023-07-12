@@ -1,0 +1,1 @@
+export const API_URL = 'https://hapi.fhir.org/baseR4/Patient?_pretty=true'
