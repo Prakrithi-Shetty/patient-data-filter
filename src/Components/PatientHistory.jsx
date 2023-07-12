@@ -10,10 +10,12 @@ const PatientHistory = () => {
     setAgeFilter(newValue);
   };
 
+
   const filteredPatientData = patientData.filter((patient) => {
     const age = patient?.age;
     return age >= ageFilter[0] && age <= ageFilter[1];
   });
+
 
   return (
     <div style={{ margin: 20 }}>

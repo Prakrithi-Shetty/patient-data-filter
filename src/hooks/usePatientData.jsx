@@ -12,11 +12,14 @@ const usePatientData = () => {
       // Calculate age for each patient and update the patientData array
       const updatedPatientData = json.entry.map((entry) => {
         const patient = entry?.resource;
-        const birthDate = new Date(patient?.birthDate);
-        const age = Math.floor((Date.now() - birthDate) / (1000 * 60 * 60 * 24 * 365));
+        const birthDate =  new Date(patient?.birthDate);
+        let age = Math.round((Date.now() - birthDate) / (1000 * 60 * 60 * 24 * 365));
+        if(isNaN(age)) {
+          age = 0;
+        }
         return { ...patient, age };
       });
-
+      
       setPatientData(updatedPatientData);
     } catch (error) {
       console.error('Error fetching patient data:', error);
